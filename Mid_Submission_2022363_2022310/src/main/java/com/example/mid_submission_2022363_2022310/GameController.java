@@ -348,7 +348,7 @@ public class GameController extends Game implements Serializable  {
                     double d=rand.nextDouble();
                     double st=this.getPlatform1().getRectangle().getX()+((this.getPlatform1().getRectangle()).getWidth()/2);
                     double en=this.getPlatform2().getRectangle().getX()-((this.getPlatform2().getRectangle().getWidth())/2);
-                    double position=st+(d*(en-st));
+                    double position=st+40+(d*(en-st-30));
                     try {
                         cherry=new Cherry(position);
                         cherries.add(cherry);
