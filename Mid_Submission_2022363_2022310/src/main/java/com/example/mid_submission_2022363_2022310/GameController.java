@@ -1,7 +1,6 @@
 package com.example.mid_submission_2022363_2022310;
 
 import javafx.animation.*;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Point3D;
@@ -38,6 +37,18 @@ public class GameController extends Game implements Serializable  {
     private Cherry cherry;
 
     private ArrayList<Cherry> cherries = new ArrayList<>();
+
+    private int cherryCount = 0;
+
+    public void setCherryCount(int cherryCount)
+    {
+        this.cherryCount = cherryCount;
+    }
+
+    public int getCherryCount()
+    {
+        return this.cherryCount;
+    }
 
 
     public boolean getIsGameOver() {
@@ -243,10 +254,14 @@ public class GameController extends Game implements Serializable  {
                 return;
             }
 
-            if(cherry != null && iv1.getBoundsInParent().intersects(cherry.getCherryIv().getBoundsInParent()))
+            if(cherry != null && iv2.getBoundsInParent().intersects(cherry.getCherryIv().getBoundsInParent()))
             {
-                System.out.println("Cherry");
-                cherry.getCherryIv().setVisible(false);    
+                // System.out.println("Cherry");
+                if(fallFlag == 0)
+                    cherryCount += 1;
+                cherry.getCherryIv().setVisible(false);
+                cherry = null;
+                getCherryCountLabel().setText(String.valueOf(cherryCount));
             }
 
         }));
@@ -333,7 +348,7 @@ public class GameController extends Game implements Serializable  {
                     double d=rand.nextDouble();
                     double st=this.getPlatform1().getRectangle().getX()+((this.getPlatform1().getRectangle()).getWidth()/2);
                     double en=this.getPlatform2().getRectangle().getX()-((this.getPlatform2().getRectangle().getWidth())/2);
-                    double position=(st+30)+(d*(en-20-st));
+                    double position=st+(d*(en-st));
                     try {
                         cherry=new Cherry(position);
                         cherries.add(cherry);

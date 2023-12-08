@@ -20,7 +20,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 
 public class Game extends Application
 {
@@ -44,6 +43,21 @@ public class Game extends Application
     private static Button univButton;
     private static Button flipButton;
 
+    
+    private static Label scoreLabel;
+    private static Label cherryCountLabel;
+
+    public void setCherryCountLabel(Label cherryCountLabel)
+    {
+        this.cherryCountLabel = cherryCountLabel;
+    }
+    
+    public Label getCherryCountLabel()
+    {
+        return cherryCountLabel;
+    }
+    
+
     public static Button getFlipButton() {
         return flipButton;
     }
@@ -52,7 +66,6 @@ public class Game extends Application
         Game.flipButton = flipButton;
     }
 
-    private static Label scoreLabel;
 
     public Label getScoreLabel() {
         return scoreLabel;
@@ -174,6 +187,24 @@ public class Game extends Application
         scoreLabel.setLayoutY(50);
 //        scoreLabel.setTextFill(Color.color(1,1,1));
         root.getChildren().add(scoreLabel);
+
+        
+        cherryCountLabel = new Label();
+        cherryCountLabel.setText(String.valueOf(0));
+        cherryCountLabel.setScaleX(3);
+        cherryCountLabel.setScaleY(3);
+        cherryCountLabel.setLayoutX(750);
+        cherryCountLabel.setLayoutY(50);
+//        scoreLabel.setTextFill(Color.color(1,1,1));
+        root.getChildren().add(cherryCountLabel);
+
+        Image cherryImageInd = new Image(new FileInputStream("CSE201_AP_Project\\Mid_Submission_2022363_2022310\\src\\main\\resources\\com\\example\\mid_submission_2022363_2022310\\Cherry_01.png"));
+        ImageView cherryImageView = new ImageView(cherryImageInd);
+        cherryImageView.setFitWidth(50);
+        cherryImageView.setFitHeight(40);
+        cherryImageView.setLayoutX(690);
+        cherryImageView.setLayoutY(40);
+        root.getChildren().add(cherryImageView);
 
         flipButton = new Button();
         flipButton.setPrefHeight(1000);
