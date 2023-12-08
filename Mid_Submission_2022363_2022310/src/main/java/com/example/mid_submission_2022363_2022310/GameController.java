@@ -36,6 +36,8 @@ public class GameController extends Game implements Serializable  {
 
     private Cherry cherry;
 
+    private ArrayList<Cherry> cherries = new ArrayList<>();
+
 
     public boolean getIsGameOver() {
         return isGameOver;
@@ -190,6 +192,7 @@ public class GameController extends Game implements Serializable  {
 
         double min_dist = getPlatform2().getRectangle().getX() - getPlatform1().getRectangle().getX()-getPlatform2().getRectangle().getWidth()/2-getPlatform1().getRectangle().getWidth()/2;
         double max_dist = distance + getPlatform2().getRectangle().getWidth()/2-getPlatform1().getRectangle().getWidth()/2;
+
 //        System.out.println(stick.getLine().getStartY()-stick.getLine().getEndY() > max_dist || stick.getLine().getStartY()-stick.getLine().getEndY() < min_dist);
 //        pos = platform2.getRectangle().getX();
 
@@ -211,6 +214,14 @@ public class GameController extends Game implements Serializable  {
         translateTransitionPlatform1.setToX(-distance);
         translateTransitionPlatform2.setToX(-distance);
 
+        TranslateTransition translateTransitionCherry;
+        if(cherry != null)
+        {
+            translateTransitionCherry = new TranslateTransition(Duration.millis(platformMoveTime),cherry.getCherryIv());
+            translateTransitionCherry.setToX(-distance);
+            translateTransitionCherry.play();
+        }
+
         translateTransitionPlatform1.play();
         translateTransitionPlatform2.play();
         translateTransitionStick.play();
@@ -222,15 +233,21 @@ public class GameController extends Game implements Serializable  {
         Timeline collisionTimeline = new Timeline(new KeyFrame(Duration.millis(10),actionEvent ->
         {
 //            System.out.println(platform2.getRectangle().getX());
-            if(iv1.getBoundsInParent().intersects(platform2.getRectangle().getBoundsInParent()) && isFlipped)
-            {
-//                System.out.println("Game Over");
+            if (iv1.getBoundsInParent().intersects(platform2.getRectangle().getBoundsInParent()) && isFlipped) {
+                // System.out.println("Game Over");
                 translateTransitionStick.stop();
                 translateTransitionPlatform1.stop();
                 translateTransitionPlatform2.stop();
                 isGameOver = true;
                 return;
             }
+
+            if(cherry != null && iv1.getBoundsInParent().intersects(cherry.getCherryIv().getBoundsInParent()))
+            {
+                System.out.println("Cherry");
+                cherry.getCherryIv().setVisible(false);    
+            }
+
         }));
 
         collisionTimeline.setCycleCount((int)platformMoveTime/15);
@@ -267,9 +284,14 @@ public class GameController extends Game implements Serializable  {
 
         translateTransitionPlatform2.setOnFinished(actionEvent ->
         {
-            System.out.println("Moved");
+            // System.out.println("Moved");
             collisionTimeline.stop();
             getFlipButton().setDisable(true);
+            
+            for(Cherry cherry:cherries)
+            {
+                cherry.getCherryIv().setVisible(false);
+            }
 
             iv2.setVisible(false);
             iv1.setVisible(true);
@@ -287,11 +309,7 @@ public class GameController extends Game implements Serializable  {
                 newPlatform.getRectangle().setY(900);
                 setPlatform2(newPlatform);
             }
-//            else
-//            {
-////                setPlatform1(new Platform(w, 50 - finalDistance));
-////                stick.getLine().setVisible(false);
-//            }
+
 
             TranslateTransition spawnPlatform = new TranslateTransition(Duration.millis(400),getPlatform2().getRectangle());
             spawnPlatform.setToY(getPlatform1().getRectangle().getY()-getPlatform2().getRectangle().getY());
@@ -317,10 +335,10 @@ public class GameController extends Game implements Serializable  {
                     double position=st+(d*(en-st));
                     try {
                         cherry=new Cherry(position);
+                        cherries.add(cherry);
                     } catch (FileNotFoundException e) {
                         throw new RuntimeException(e);
                     }
-
 
                     setScore(getScore() + 1);
                     getScoreLabel().setText(String.valueOf(getScore()));
