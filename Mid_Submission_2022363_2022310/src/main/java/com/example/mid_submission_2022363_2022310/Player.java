@@ -1,5 +1,9 @@
 package com.example.mid_submission_2022363_2022310;
 
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Line;
+
 import java.io.Serializable;
 
 public class Player implements Serializable
@@ -11,7 +15,19 @@ public class Player implements Serializable
 
     public void respawnChar(double posX){}
     public void spawnPlatform(double posX){}
-    public void spawnStick(double posX){}
+    public void spawnStick(double posX)
+    {
+        EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>()
+        {
+            @Override
+            public void handle(MouseEvent e)
+            {
+                Line line = new Line();
+                line.setStartX(posX);
+                line.setEndX(200);
+            }
+        };
+    }
     public Character getChar(){return this.character;}
     public void setCherryCount(int cherryCount){}
     public int getCherryCount(){return this.cherryCount;}

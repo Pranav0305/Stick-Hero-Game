@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="447.0" prefWidth="817.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mid_submission_2022363_2022310.GameController">
+<VBox alignment="CENTER" prefHeight="469.0" prefWidth="839.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mid_submission_2022363_2022310.GameController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -21,39 +21,29 @@
                <Image url="@BG%2001.jpg" />
             </image>
          </ImageView>
+         <Button layoutX="280.0" layoutY="54.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="192.0" text="RESPAWN">
+            <font>
+               <Font name="System Bold" size="20.0" />
+            </font>
+         </Button>
          <Rectangle arcHeight="5.0" arcWidth="5.0" height="200.0" layoutX="-8.0" layoutY="123.0" stroke="BLACK" strokeType="INSIDE" width="114.0" />
-         <ImageView fitHeight="57.0" fitWidth="47.0" layoutX="59.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@Char_01_Gif_01.gif" />
-            </image>
-         </ImageView>
          <Rectangle arcHeight="5.0" arcWidth="5.0" height="200.0" layoutX="223.0" layoutY="123.0" stroke="BLACK" strokeType="INSIDE" width="114.0" />
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="6.0" layoutX="272.0" layoutY="123.0" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-         <Button layoutX="280.0" layoutY="54.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="192.0" text="RESUME">
+         <Button layoutX="280.0" layoutY="116.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="192.0" text="NEW GAME">
             <font>
                <Font name="System Bold" size="20.0" />
             </font>
          </Button>
-         <Button layoutX="280.0" layoutY="114.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="192.0" text="NEW GAME">
+         <Button layoutX="280.0" layoutY="186.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="192.0" text="QUIT">
             <font>
                <Font name="System Bold" size="20.0" />
             </font>
          </Button>
-         <Button layoutX="280.0" layoutY="242.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="192.0" text="QUIT">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-         </Button>
-         <Label layoutX="254.0" layoutY="-77.0" prefHeight="62.0" prefWidth="245.0" text="GAME PAUSED" textAlignment="CENTER">
+         <Label layoutX="266.0" layoutY="-77.0" prefHeight="62.0" prefWidth="245.0" text="GAME OVER" textAlignment="CENTER">
             <font>
                <Font name="Agency FB Bold" size="50.0" />
             </font>
          </Label>
-         <Button layoutX="280.0" layoutY="177.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="192.0" text="SAVE GAME">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-         </Button>
          <ImageView fitHeight="32.0" fitWidth="41.0" layoutX="723.0" layoutY="-102.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@Cherry_01.png" />

@@ -1,6 +1,8 @@
 package com.example.mid_submission_2022363_2022310;
 
-public class MainMenu implements Menu
+import java.io.Serializable;
+
+public class MainMenu implements Menu, Serializable
 {
     private boolean gameOver;
 
