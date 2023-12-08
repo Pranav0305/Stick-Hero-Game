@@ -40,7 +40,7 @@ public class Cherry implements Serializable
     }
 
     public Cherry(double posX) throws FileNotFoundException {
-        Image cherryImage = new Image(new FileInputStream("src\\main\\resources\\com\\example\\mid_submission_2022363_2022310\\Cherry_01.png"));
+        Image cherryImage = new Image(new FileInputStream("CSE201_AP_Project\\Mid_Submission_2022363_2022310\\src\\main\\resources\\com\\example\\mid_submission_2022363_2022310\\Cherry_01.png"));
         this.cherryImage = cherryImage;
         this.posX = posX;
         cherryIv = new ImageView(cherryImage);

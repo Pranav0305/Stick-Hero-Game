@@ -121,13 +121,13 @@ public class Game extends Application
         stage.setScene(scene);
         stage.show();
 
-        Image bgImage = new Image(new FileInputStream("src/main/resources/com/example/mid_submission_2022363_2022310/BG 01.jpg"));
+        Image bgImage = new Image(new FileInputStream("CSE201_AP_Project\\Mid_Submission_2022363_2022310\\src\\main\\resources\\com\\example\\mid_submission_2022363_2022310\\BG 01.jpg"));
         ImageView iv = new ImageView(bgImage);
         root.getChildren().add(iv);
 
 
 //        playerImage = new Image(new FileInputStream("src/main/resources/com/example/mid_submission_2022363_2022310/Batman_Idle.png"));
-        playerImage = new Image(new FileInputStream("src/main/resources/com/example/mid_submission_2022363_2022310/Char_01_Gif_01.gif"));
+        playerImage = new Image(new FileInputStream("CSE201_AP_Project\\Mid_Submission_2022363_2022310\\src\\main\\resources\\com\\example\\mid_submission_2022363_2022310\\Char_01_Gif_01.gif"));
         iv1 = new ImageView(playerImage);
 
         iv1.setScaleX(0.25);

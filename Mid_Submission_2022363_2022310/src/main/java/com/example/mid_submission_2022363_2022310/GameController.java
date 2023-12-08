@@ -171,7 +171,7 @@ public class GameController extends Game implements Serializable  {
     void moveEnvironment(Platform platform1, Platform platform2,ImageView iv1) throws FileNotFoundException
     {
         isFlipped = false;
-        Image runningPlayerImage = new Image(new FileInputStream("src/main/resources/com/example/mid_submission_2022363_2022310/Char_01_Gif_02.gif"));
+        Image runningPlayerImage = new Image(new FileInputStream("CSE201_AP_Project\\Mid_Submission_2022363_2022310\\src\\main\\resources\\com\\example\\mid_submission_2022363_2022310\\Char_01_Gif_02.gif"));
 //        Image runningPlayerImage = new Image(new FileInputStream("src/main/resources/com/example/mid_submission_2022363_2022310/Batman_Running.gif"));
         iv2 = new ImageView(runningPlayerImage);
         iv1.setVisible(false);
@@ -244,7 +244,7 @@ public class GameController extends Game implements Serializable  {
                 ImageView iv3;
                 Image deadImage = null;
                 try {
-                    deadImage = new Image(new FileInputStream("src/main/resources/com/example/mid_submission_2022363_2022310/Char_01_Gif_01.gif"));
+                    deadImage = new Image(new FileInputStream("CSE201_AP_Project\\Mid_Submission_2022363_2022310\\src\\main\\resources\\com\\example\\mid_submission_2022363_2022310\\Char_01_Gif_01.gif"));
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException(e);
                 }
