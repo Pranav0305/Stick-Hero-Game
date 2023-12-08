@@ -1,6 +1,7 @@
 package com.example.mid_submission_2022363_2022310;
 
 import javafx.animation.*;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Point3D;
@@ -332,7 +333,7 @@ public class GameController extends Game implements Serializable  {
                     double d=rand.nextDouble();
                     double st=this.getPlatform1().getRectangle().getX()+((this.getPlatform1().getRectangle()).getWidth()/2);
                     double en=this.getPlatform2().getRectangle().getX()-((this.getPlatform2().getRectangle().getWidth())/2);
-                    double position=st+(d*(en-st));
+                    double position=(st+30)+(d*(en-20-st));
                     try {
                         cherry=new Cherry(position);
                         cherries.add(cherry);
